@@ -18,7 +18,7 @@ if (isset($_POST['signup-submit'])) {
     else {
         $sql = "SELECT uname FROM users WHERE uname=?";
         $stmt = mysqli_stmt_init($conn);
-        if (!my_sqli_stmt_prepare($stmt, $sql)) {
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: ../signup.php?error=SQLInjection");
         }
         else {
@@ -34,7 +34,7 @@ if (isset($_POST['signup-submit'])) {
             else {
                 $sql = "INSERT INTO users (lname, fname, email, uname, password) VALUES (?, ?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
-                if (!my_sqli_stmt_prepare($stmt, $sql)) {
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
                     header("Location: ../signup.php?error=SQLInjection");
                     exit();
                 }
