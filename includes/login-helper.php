@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['signup-submit'])) {
+if (isset($_POST['login-submit'])) {
     require 'dbhandler.php';
 
     $uname = $_POST['uname-email'];
@@ -46,6 +46,6 @@ if (isset($_POST['signup-submit'])) {
 
 }
 else {
-    header("Location: ../login.php");
+    header("Location: ../login.php?LastElse=Bad");
     exit();
 }
